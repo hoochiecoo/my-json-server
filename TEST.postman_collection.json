@@ -1,0 +1,223 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TEST",
+		"_postman_id": "9cfae6de-e36c-1b7e-30e7-e87195ec35c8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getTokenWithNoSecret",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 401\"] = responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{host}}/ufr-auth-server/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QVpPTlZOVDoyeG9WaVNhR3B6Y1RsdHd1TWNFNnhuWmJzUnB3bmx5ZkZhYjVHN24zTjU0ZFZMMmMydUU5emNvYmRSTVhBRUNRakdIWkp4TVE1TENQTlBGY2dVNWx3ODNPekxUVVN5UGpHQ21rekJmY3lNeElYZkNaQnVENHB0QzEwY29kVkpOTUFiTzdCTmpOTmJYempERkthRWQzTTI2YWdsb3d3VFpRWmRJc2wySTdXYmhiWFZmaXQySWFDMTBHNjBXSXAzbzhVT0ViZU9oWg==",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "usid",
+							"value": "0000000I0L",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "orid",
+							"value": "000YML",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getTokenWithNoOrid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 401\"] = responseCode.code === 401;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[jsonData.error] = jsonData.error === \"unauthorized\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{host}}/ufr-auth-server/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QVpPTlZOVDoyeG9WaVNhR3B6Y1RsdHd1TWNFNnhuWmJzUnB3bmx5ZkZhYjVHN24zTjU0ZFZMMmMydUU5emNvYmRSTVhBRUNRakdIWkp4TVE1TENQTlBGY2dVNWx3ODNPekxUVVN5UGpHQ21rekJmY3lNeElYZkNaQnVENHB0QzEwY29kVkpOTUFiTzdCTmpOTmJYempERkthRWQzTTI2YWdsb3d3VFpRWmRJc2wySTdXYmhiWFZmaXQySWFDMTBHNjBXSXAzbzhVT0ViZU9oWg==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "usid",
+							"value": "0000000I0L",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getTokenWithNoSecretUsid",
+			"request": {
+				"url": "ufr-dev/ufr-auth-server/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QVpPTlZOVDoyeG9WaVNhR3B6Y1RsdHd1TWNFNnhuWmJzUnB3bmx5ZkZhYjVHN24zTjU0ZFZMMmMydUU5emNvYmRSTVhBRUNRakdIWkp4TVE1TENQTlBGY2dVNWx3ODNPekxUVVN5UGpHQ21rekJmY3lNeElYZkNaQnVENHB0QzEwY29kVkpOTUFiTzdCTmpOTmJYempERkthRWQzTTI2YWdsb3d3VFpRWmRJc2wySTdXYmhiWFZmaXQySWFDMTBHNjBXSXAzbzhVT0ViZU9oWg==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "usid",
+							"value": "0000000I0L",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "orid",
+							"value": "000YML",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "getTokenValid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Your test name\"] = jsonData.scope === \"read\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{host}}/ufr-auth-server/oauth/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic QVpPTlZOVDoyeG9WaVNhR3B6Y1RsdHd1TWNFNnhuWmJzUnB3bmx5ZkZhYjVHN24zTjU0ZFZMMmMydUU5emNvYmRSTVhBRUNRakdIWkp4TVE1TENQTlBGY2dVNWx3ODNPekxUVVN5UGpHQ21rekJmY3lNeElYZkNaQnVENHB0QzEwY29kVkpOTUFiTzdCTmpOTmJYempERkthRWQzTTI2YWdsb3d3VFpRWmRJc2wySTdXYmhiWFZmaXQySWFDMTBHNjBXSXAzbzhVT0ViZU9oWg==",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "usid",
+							"value": "0000000I0L",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "orid",
+							"value": "000YML",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
